@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+    <!-- Ground -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <!-- Pioneer2dx model -->
+    <include>
+      <uri>model://husky</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <include>
+      <uri>model://mars_rover</uri>
+      <pose>2.5 2.5 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://coke_can</uri>
+      <pose>2.5 0 0 0 0 0</pose>
+    </include>
+
+
+    <include>
+      <uri>model://pioneer2dx</uri>
+      <pose>-2.5 -2.5 0 0 0 0</pose>
+    </include>
+
+
+
+<!-- Here I add House SDF script to get House in World -->
+<!-- To add new objects you have to add model in your world folder as i add House 3  -->
+
+  <model name="House 3">
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://house_3/meshes/house_3.dae</uri>
+            <scale>1.5 1.5 1.5</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://house_3/meshes/house_3.dae</uri>
+            <scale>1.5 1.5 1.5</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://house_3/materials/scripts</uri>
+            <uri>model://house_3/materials/textures</uri>
+            <uri>model://house_1/materials/textures</uri>
+            <name>House_3/Diffuse</name>
+          </script>
+          <shader type="normal_map_tangent_space">
+            <normal_map>model://house_1/materials/textures/House_1_Normal.png</normal_map>
+          </shader>
+        </material>
+      </visual>
+    </link>
+
+      <pose>-2.5 7 0 0 0 0</pose>    <!-- You can change pose of house from here  -->
+  </model>
+
+
+
+  </world>
+
+
+
+
+</sdf>
+
+
